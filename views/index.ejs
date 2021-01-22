@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <%- include('head',{});%>
+    
   </head>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <h1>yes</h1>
+    <fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+      <legend>按钮主题</legend>
+      <div>
+        <button type="button" class="layui-btn layui-btn-primary">原始按钮</button>
+        <button type="button" class="layui-btn">默认按钮</button>
+        <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
+      </div>
+    </fieldset>
   </body>
 </html>
