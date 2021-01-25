@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%- include('head',{});%>
-    
+  <%- include('head',{}) %>
+  <style>
+    .layui-table{
+      margin: 50px auto;
+      width: 1000px;
+    }
+  </style>
   </head>
-
   <body>
-    <fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
-      <legend>按钮主题</legend>
-      <div>
-        <button type="button" class="layui-btn layui-btn-primary">原始按钮</button>
-        <button type="button" class="layui-btn">默认按钮</button>
-        <button type="button" class="layui-btn layui-btn-normal">百搭按钮</button>
-      </div>
-    </fieldset>
+    <%- include('header',{ userName }) %>
+    <table class="layui-table" lay-skin="line">
+      <colgroup>
+        <col width="60">
+        <col width="60">
+        <col width="80">
+        <col width="200">
+        <col width="80">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>用户名</th>
+          <th>时间</th>
+          <th>内容</th>
+          <th>操作</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>贤心</td>
+          <td>1989-10-14</td>
+          <td>人生似修行</td>
+          <td>
+            <a href="">编辑</a>
+            <a href="">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>张爱玲</td>
+          <td>1920-09-30</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+          <td>
+            <a href="">编辑</a>
+            <a href="">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>  
   </body>
 </html>

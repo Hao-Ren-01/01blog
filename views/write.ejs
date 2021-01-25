@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head',{});%>
+        <title>Document</title>
+    <style>
+        .layui-card {
+            margin: 50px auto;
+            width: 1000px;
+        }
+
+        .layui-form-label {
+            font-weight: bold;
+            color: rgb(230, 230, 230);
+            width: 50px;
+        }
+
+        .btn {
+            margin: 0px auto;
+        }
+
+        .layui-btn {
+            background-color: #393d49;
+            color: rgb(230, 230, 230);
+        }
+    </style>
+
+</head>
+
+<body>
+    <%- include('header',{});%>
+    <div class="layui-card">
+        <form action="/article/add" method="POST">
+            <div class="layui-card-header">
+                标题:
+                <input name="title" type="text" placeholder="请输入标题" >
+            </div>
+            <div class="layui-card-body">
+                内容：
+              <textarea name="content"  cols="130" rows="10">的说法是</textarea>
+              <input type="submit" value="发布">
+            </div>
+        </form>
+        
+    </div>
+</body>
+
+</html>

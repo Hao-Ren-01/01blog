@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>注册</title>
+    <%- include('head',{});%>
+    <link rel="stylesheet" href="/public/libs/layui/css/regist.css">
+    <style>
+        .layui-form{
+          margin: 50px auto;
+          width: 500px;
+        }
+        .layui-form-label{
+          font-weight: bold;
+          color:rgb(230, 230, 230);
+          width: 50px;
+        }
+        .layui-btn{
+          background-color: #393d49;
+          color:rgb(230, 230, 230);
+          margin: 0px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('header',{});%>
+    <form class="layui-form" action="/users/addUser" method="POST">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="text" name="userName" placeholder="请输入用户名" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="password" name="password" placeholder="请输入密码" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="password" name="passwordC" placeholder="请输入密码" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" type="submit" lay-filter="demo2">注册</button>
+        </div>
+        <div>
+            已有账号，去<a href="/login">登录</a>
+        </div>
+    </form>
+</body>
+
+</html>
