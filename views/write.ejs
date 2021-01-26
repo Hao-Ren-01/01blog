@@ -38,12 +38,24 @@
             </div>
             <div class="layui-card-body">
                 内容：
-              <textarea name="content"  cols="130" rows="10">的说法是</textarea>
-              <input type="submit" value="发布">
+              <textarea name="content"  id="editor" cols="130" rows="10">呜啦啦啦啦啦啦</textarea>
+              <input type="submit" class="layui-btn layui-btn-primary"  value="发布">
             </div>
         </form>
         
     </div>
+    <script src="/libs/ckeditor5-build-classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ),  {
+                ckfinder: {
+                    uploadUrl:'/article/upload'
+                }
+            })
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </body>
 
 </html>

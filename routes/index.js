@@ -1,12 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+let Article = require('../models/article')
+
 /* GET home page. */
-router.get('/index', function(req, res, next) {
+router.get('/index', async function(req, res, next) {
   // let userName = req.session.username
   // console.log(userName);
+  let data = await Article.find()
+  console.log(data);
+
   let userName = req.session.username || ''
-  res.render('index', { userName });
+  res.render('index', { userName, data });
 });
 
 router.get('/login',function (req, res) {

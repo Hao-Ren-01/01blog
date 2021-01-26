@@ -11,6 +11,7 @@
   </head>
   <body>
     <%- include('header',{ userName }) %>
+
     <table class="layui-table" lay-skin="line">
       <colgroup>
         <col width="60">
@@ -21,34 +22,34 @@
       </colgroup>
       <thead>
         <tr>
+          
           <th>id</th>
           <th>用户名</th>
           <th>时间</th>
           <th>内容</th>
           <th>操作</th>
+         
         </tr> 
       </thead>
       <tbody>
+        <% data.map(item =>{ %>
         <tr>
-          <td>0</td>
-          <td>贤心</td>
-          <td>1989-10-14</td>
-          <td>人生似修行</td>
+          
+
+            
+          <td>
+              0
+          </td>
+          <td><%= item.title %></td>
+          <td><%= item.date %></td>
+          <td><%= item.content %></td>
           <td>
             <a href="">编辑</a>
             <a href="">删除</a>
           </td>
+          
         </tr>
-        <tr>
-          <td>1</td>
-          <td>张爱玲</td>
-          <td>1920-09-30</td>
-          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-          <td>
-            <a href="">编辑</a>
-            <a href="">删除</a>
-          </td>
-        </tr>
+        <% }) %>
       </tbody>
     </table>  
   </body>
