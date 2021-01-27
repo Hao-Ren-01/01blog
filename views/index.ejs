@@ -8,53 +8,14 @@
         margin: 50px auto;
         width: 1000px;
       }
-      DIV.black-red {
-        FONT-SIZE: 11px;
-        COLOR: #fff;
-        FONT-FAMILY: Tahoma, Arial, Helvetica, Sans-serif;
-        BACKGROUND-COLOR: #3e3e3e
+      .layui-table .fy-list{
+        height: 60px;
+        
       }
-
-      DIV.black-red A {
-        PADDING-RIGHT: 5px;
-        PADDING-LEFT: 5px;
-        PADDING-BOTTOM: 2px;
-        MARGIN: 2px;
-        COLOR: #fff;
-        PADDING-TOP: 2px;
-        BACKGROUND-COLOR: #3e3e3e;
-        TEXT-DECORATION: none
-      }
-
-      DIV.black-red A:hover {
-        COLOR: #fff;
-        BACKGROUND-COLOR: #ec5210
-      }
-
-      DIV.black-red A:active {
-        COLOR: #fff;
-        BACKGROUND-COLOR: #ec5210
-      }
-
-      DIV.black-red SPAN.current {
-        PADDING-RIGHT: 5px;
-        PADDING-LEFT: 5px;
-        FONT-WEIGHT: bold;
-        PADDING-BOTTOM: 2px;
-        MARGIN: 2px;
-        COLOR: #fff;
-        PADDING-TOP: 2px;
-        BACKGROUND-COLOR: #313131
-      }
-
-      DIV.black-red SPAN.disabled {
-        PADDING-RIGHT: 5px;
-        PADDING-LEFT: 5px;
-        PADDING-BOTTOM: 2px;
-        MARGIN: 2px;
-        COLOR: #868686;
-        PADDING-TOP: 2px;
-        BACKGROUND-COLOR: #3e3e3e
+      .layui-table li{
+        display: inline-block;
+        height: 100%;
+        text-align: center;
       }
     </style>
 </head>
@@ -62,60 +23,63 @@
 <body>
   <%- include('header',{ userName }) %>
 
-    <table class="layui-table" lay-skin="line">
-      <colgroup>
-        <col width="60">
-        <col width="60">
-        <col width="80">
-        <col width="200">
-        <col width="80">
-      </colgroup>
-      <thead>
-        <tr>
-
-          <th>id</th>
-          <th>用户名</th>
-          <th>时间</th>
-          <th>内容</th>
-          <th>操作</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <% data.blogList.map(item=>{ %>
-          <tr>
-            <td>
-              0
-            </td>
-            <td>
-              <%= item.title %>
-            </td>
-            <td>
+    <div class="layui-table" lay-skin="line">
+      <ol class="fy-list">
+        <li>id</li>
+        <li>用户名</li>
+        <li>时间</li>
+        <li>内容</li>
+        <li>操作</li>
+      </ol>
+      <% data.blogList.map(item=>{ %>
+      <ul class="fy-list" style="width: 100%;">
+          
+            
+          <li style="width:80px;">
+            0
+          </li>
+          <li style="width:120px;">
+            <span>
+              <a href="/details?_id=<%= item._id%>"><%= item.title %></a>
+              
+            </span>
+            
+          </li>
+          <li style="width:300px;">
+            <span>
               <%= item.date %>
-            </td>
-            <td>
+              
+            </span>
+          </li>
+          <li style="width:400px;"> 
+            <span>
               <%- item.content %>
-            </td>
-            <td>
-              <a href="">编辑</a>
+            </span>
+          </li>
+          <li style="width:80px;">
+            <span>
+              <a href="/write?_id=<%= item._id %>&page=<%= data.currPage %>">编辑</a>
               <a href="">删除</a>
-            </td>
-
-          </tr>
-          <% }) %>
-      </tbody>
-    </table>
-    <div style="padding-top:10px;padding-bottom:10px;background-color:#313131;">
-      <div class="black-red">
-        <span class="disabled">&lt; </span>
-        <% for(let i=1; i <= data.Pagestotle; i++){ %>
-
-          <a href="/index?page=<%=i%>" class="current"><%= i %></a>
-        <%  } %>
-        <a href="#?page=2"> &gt; </a>
-      </div>
+            </span>
+            
+          </li>
+          
+      </ul>
+      <% }) %>
     </div>
-    <!-- <div id="demo0">
+      <div id="">
+        <div class="black-red">
+          <span class="disabled">&lt; </span>
+          <% for(let i=1; i <=data.Pagestotle; i++){ %>
+
+            <a href="/index?page=<%=i%>" class="<%- data.currPage==i?'active':'' %>">
+              <%= i %>
+            </a>
+            <% } %>
+              <a href=""> &gt; </a>
+        </div>
+      </div>
+      <!-- <div id="demo0">
 
     </div> -->
 </body>

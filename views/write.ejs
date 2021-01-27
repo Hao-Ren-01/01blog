@@ -29,16 +29,18 @@
 </head>
 
 <body>
-    <%- include('header',{});%>
+    <%- include('header',{userName});%>
     <div class="layui-card">
         <form action="/article/add" method="POST">
             <div class="layui-card-header">
                 标题:
-                <input name="title" type="text" placeholder="请输入标题" >
+                <input name="title" type="text" placeholder="请输入标题" value="<%= details.title %>" >
             </div>
             <div class="layui-card-body">
                 内容：
-              <textarea name="content"  id="editor" cols="130" rows="10">呜啦啦啦啦啦啦</textarea>
+              <textarea name="content"  id="editor" cols="130" rows="10">
+                <%= details.content %>
+              </textarea>
               <input type="submit" class="layui-btn layui-btn-primary"  value="发布">
             </div>
         </form>

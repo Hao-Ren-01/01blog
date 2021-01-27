@@ -3,7 +3,26 @@
 <head>
     <%- include('head',{});%>
 </head>
+<style>
+    .layui-card {
+        margin: 50px auto;
+        width: 1000px;
+      }
+</style>
 <body>
     <%- include('header',{ userName }) %>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <h1>标题：<%= data.title %></h1>
+        </div>
+        <div class="layui-card-body">
+            <p>作者：郝仁</p>
+            <p><%= data.date  %></p>
+            <div class="content">
+                <%- data.content  %>
+            </div>
+            
+        </div>
+      </div>
 </body>
 </html>
