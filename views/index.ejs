@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
   <%- include('head',{}) %>
-  <style>
-    .layui-table{
-      margin: 50px auto;
-      width: 1000px;
-    }
-  </style>
-  </head>
-  <body>
-    <%- include('header',{ userName }) %>
+    <style>
+      .layui-table {
+        margin: 50px auto;
+        width: 1000px;
+      }
+      DIV.black-red {
+        FONT-SIZE: 11px;
+        COLOR: #fff;
+        FONT-FAMILY: Tahoma, Arial, Helvetica, Sans-serif;
+        BACKGROUND-COLOR: #3e3e3e
+      }
+
+      DIV.black-red A {
+        PADDING-RIGHT: 5px;
+        PADDING-LEFT: 5px;
+        PADDING-BOTTOM: 2px;
+        MARGIN: 2px;
+        COLOR: #fff;
+        PADDING-TOP: 2px;
+        BACKGROUND-COLOR: #3e3e3e;
+        TEXT-DECORATION: none
+      }
+
+      DIV.black-red A:hover {
+        COLOR: #fff;
+        BACKGROUND-COLOR: #ec5210
+      }
+
+      DIV.black-red A:active {
+        COLOR: #fff;
+        BACKGROUND-COLOR: #ec5210
+      }
+
+      DIV.black-red SPAN.current {
+        PADDING-RIGHT: 5px;
+        PADDING-LEFT: 5px;
+        FONT-WEIGHT: bold;
+        PADDING-BOTTOM: 2px;
+        MARGIN: 2px;
+        COLOR: #fff;
+        PADDING-TOP: 2px;
+        BACKGROUND-COLOR: #313131
+      }
+
+      DIV.black-red SPAN.disabled {
+        PADDING-RIGHT: 5px;
+        PADDING-LEFT: 5px;
+        PADDING-BOTTOM: 2px;
+        MARGIN: 2px;
+        COLOR: #868686;
+        PADDING-TOP: 2px;
+        BACKGROUND-COLOR: #3e3e3e
+      }
+    </style>
+</head>
+
+<body>
+  <%- include('header',{ userName }) %>
 
     <table class="layui-table" lay-skin="line">
       <colgroup>
@@ -22,35 +72,79 @@
       </colgroup>
       <thead>
         <tr>
-          
+
           <th>id</th>
           <th>用户名</th>
           <th>时间</th>
           <th>内容</th>
           <th>操作</th>
-         
-        </tr> 
+
+        </tr>
       </thead>
       <tbody>
-        <% data.map(item =>{ %>
-        <tr>
-          
-
-            
-          <td>
+        <% data.blogList.map(item=>{ %>
+          <tr>
+            <td>
               0
-          </td>
-          <td><%= item.title %></td>
-          <td><%= item.date %></td>
-          <td><%= item.content %></td>
-          <td>
-            <a href="">编辑</a>
-            <a href="">删除</a>
-          </td>
-          
-        </tr>
-        <% }) %>
+            </td>
+            <td>
+              <%= item.title %>
+            </td>
+            <td>
+              <%= item.date %>
+            </td>
+            <td>
+              <%- item.content %>
+            </td>
+            <td>
+              <a href="">编辑</a>
+              <a href="">删除</a>
+            </td>
+
+          </tr>
+          <% }) %>
       </tbody>
-    </table>  
-  </body>
+    </table>
+    <div style="padding-top:10px;padding-bottom:10px;background-color:#313131;">
+      <div class="black-red">
+        <span class="disabled">&lt; </span>
+        <% for(let i=1; i <= data.Pagestotle; i++){ %>
+
+          <a href="/index?page=<%=i%>" class="current"><%= i %></a>
+        <%  } %>
+        <a href="#?page=2"> &gt; </a>
+      </div>
+    </div>
+    <!-- <div id="demo0">
+
+    </div> -->
+</body>
+<script src="libs/layui/layui.js" charset="utf-8"></script>
+<script>
+  //   layui.use(['laypage', 'layer'], function(){
+  //     var laypage = layui.laypage
+  //     ,layer = layui.layer;
+
+  //     //总页数低于页码总数
+  //     laypage.render({
+  //       elem: 'demo0',count: 50 //数据总数
+  //     });
+  //   })
+  //   laypage.render({
+  //   elem: 'demo0',
+  //   count: data.length,
+  //   jump: function(obj){
+  //     //模拟渲染
+  //     document.getElementById('biuuu_city_list').innerHTML = function(){
+  //       var arr = []
+  //       ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+  //       layui.each(thisData, function(index, item){
+  //         arr.push('<li>'+ item +'</li>');
+  //       });
+  //       return arr.join('');
+  //     }();
+  //   }
+  // });
+</script>
+
 </html>
